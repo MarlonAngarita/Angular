@@ -1,0 +1,15 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 45px;
+  margin-right: 45px;
+  padding-top: 80px;  /* Ajustar según altura del navbar */
+  padding-bottom: 90px; /* Ajustar según altura del footer */
+}

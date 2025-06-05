@@ -1,0 +1,45 @@
+<nav class="navbar">
+    <h1>Cursos</h1>
+    <div class="navbar-buttons">
+        <button (click)="mostrarDisponibles()" [class.active]="vistaActual === 'disponibles'">Cursos disponibles</button>
+        <button (click)="mostrarInscritos()" [class.active]="vistaActual === 'inscritos'">Cursos inscritos</button>
+    </div>
+</nav>
+
+<main>
+    <!-- Sección de cursos disponibles -->
+    <section *ngIf="vistaActual === 'disponibles'" id="cursos-disponibles-section">
+        <div class="cursos-container">
+            <div *ngFor="let curso of cursosDisponibles" class="curso-card" (click)="abrirDetalles(curso)">
+                <h3>{{ curso.titulo }}</h3>
+                <p class="curso-descripcion">{{ curso.descripcion }}</p>
+                <button class="btn-ver-mas" (click)="abrirDetalles(curso)">Ver más</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de cursos inscritos -->
+    <section *ngIf="vistaActual === 'inscritos'" id="cursos-inscritos-section">
+        <h2 *ngIf="cursosInscritos.length === 0">Actualmente no te encuentras inscrito a ningún curso</h2>
+        <div class="inscritos-container">
+            <div *ngFor="let curso of cursosInscritos" class="curso-inscrito">
+                <h3>{{ curso.titulo }}</h3>
+                <p class="curso-descripcion">{{ curso.descripcion }}</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de detalles -->
+    <div class="modal" *ngIf="modalActivo">
+        <div class="modal-contenido">
+            <button class="modal-cerrar" (click)="cerrarModal()">X</button>
+            <h2>{{ cursoSeleccionado?.titulo }}</h2>
+            <p><strong>Descripción:</strong> {{ cursoSeleccionado?.descripcion }}</p>
+            <p><strong>Contenido:</strong> {{ cursoSeleccionado?.contenido }}</p>
+            <div class="modal-botones">
+                <button (click)="inscribirseCurso()">Inscribirme</button>
+                <button (click)="verMasCurso()">Ver más</button>
+            </div>
+        </div>
+    </div>
+</main>

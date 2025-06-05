@@ -1,0 +1,81 @@
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #EDEDED;
+}
+
+.navbar {
+    background-color: #2607F2;
+    color: #EDEDED;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+}
+
+.navbar h1 {
+    margin-bottom: 5px; /* 🔹 Reduce el espacio entre el título y los botones */
+}
+
+.navbar-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* 🔹 Reduce la separación entre botones */
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.navbar-buttons button {
+    background-color: #EDEDED;
+    color: #2607F2;
+    border: 2px solid #2607F2;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-buttons button:hover {
+    background-color: #7407F2;
+    color: white;
+}
+
+.navbar-buttons button.active {
+    background-color: #7407F2;
+    color: white;
+}
+
+.cursos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.curso-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+}
+
+.curso-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

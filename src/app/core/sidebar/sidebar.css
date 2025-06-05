@@ -1,0 +1,39 @@
+.sidebar {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #2607F2;
+    color: white;
+    z-index: 2000;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar.hidden {
+    transform: translateX(-100%);
+}
+
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #2607F2;
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 30px;
+    border-radius: 8px;
+    z-index: 2100;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-toggle.active {
+    top: 20px; /* 🔹 Mantiene la posición en la parte superior */
+    left: 11.5rem; /* 🔹 Lo mueve a la derecha cuando el sidebar está abierto */
+}
+
+.menu-toggle:hover {
+    background-color: #5a05b2;
+}

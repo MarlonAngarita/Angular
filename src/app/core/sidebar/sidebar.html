@@ -1,0 +1,19 @@
+<button class="menu-toggle" [class.active]="!sidebarOculto" (click)="toggleSidebar()">
+   <i [class]="sidebarOculto ? 'fa-solid fa-bars' : 'fa-solid fa-xmark'"></i><!--fa-bars para abrir el menu hamburguesa, fa-xmark es la X para cerrar -->
+</button>
+
+<div class="sidebar" [class.hidden]="sidebarOculto">
+    <ul *ngIf="userRole === 'usuario'">
+        <li><a routerLink="/usuario/biblioteca">Biblioteca</a></li>
+        <li><a routerLink="/usuario/categoria-estudiante">Categoría</a></li>
+        <li><a routerLink="/usuario/cursos">Cursos</a></li>
+        <li><a routerLink="/usuario/foro-estudiantes">Foro</a></li>
+    </ul>
+
+    <ul *ngIf="userRole === 'profesor'">
+        <li><a routerLink="/profesores/biblioteca">Biblioteca</a></li>
+        <li><a routerLink="/profesores/categoria-profesor">Categoría</a></li>
+        <li><a routerLink="/profesores/cursos">Cursos</a></li>
+        <li><a routerLink="/profesores/foro-profesores">Foro</a></li>
+    </ul>
+</div>

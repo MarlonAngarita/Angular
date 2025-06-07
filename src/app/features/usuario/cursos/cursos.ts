@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-cursos-estudiante',
   standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './cursos.html',
   styleUrls: ['./cursos.css']
 })
@@ -10,6 +13,8 @@ export class Cursos {
   vistaActual = 'disponibles';
   modalActivo = false;
   cursoSeleccionado: any = null;
+  modalConfirmacionActivo = false;
+  modalAlertaActivo = false;
 
   cursosDisponibles = [
     { titulo: 'Angular Básico', descripcion: 'Aprende lo esencial de Angular.', contenido: 'Introducción a componentes y servicios.' },
@@ -37,14 +42,27 @@ export class Cursos {
     this.cursoSeleccionado = null;
   }
 
-  inscribirseCurso() {
-    if (!this.cursosInscritos.includes(this.cursoSeleccionado)) {
-      this.cursosInscritos.push(this.cursoSeleccionado);
-    }
-    this.cerrarModal();
+  verMasCurso() {
+  console.log("Ver más detalles del curso:", this.cursoSeleccionado);
+  // Aquí puedes agregar cualquier lógica adicional para mostrar más información
   }
 
-  verMasCurso() {
-    alert('Más información próximamente.');
+  inscribirseCurso() {
+    if (this.cursosInscritos.some(curso => curso.titulo === this.cursoSeleccionado.titulo)) {
+        this.modalAlertaActivo = true; // Activa el modal de alerta si ya está inscrito
+    } else {
+        this.cursosInscritos.push(this.cursoSeleccionado);
+        this.modalConfirmacionActivo = true; // Activa el modal de confirmación
+    }
+  }
+
+  cerrarModalConfirmacion() {
+    this.modalConfirmacionActivo = false;
+    this.modalActivo = false;
+    this.cursoSeleccionado = null;
+  }
+
+  cerrarModalAlerta() {
+    this.modalAlertaActivo = false;
   }
 }

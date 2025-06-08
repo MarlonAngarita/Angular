@@ -8,6 +8,7 @@
     color: white;
     z-index: 2000;
     transition: transform 0.3s ease-in-out;
+    padding-top: 80px; /* ✅ Mueve los botones más abajo */
 }
 
 .sidebar.hidden {
@@ -30,10 +31,135 @@
 }
 
 .menu-toggle.active {
-    top: 20px; /* 🔹 Mantiene la posición en la parte superior */
-    left: 11.5rem; /* 🔹 Lo mueve a la derecha cuando el sidebar está abierto */
+    top: 20px; 
+    left: 11.5rem; 
 }
 
 .menu-toggle:hover {
     background-color: #5a05b2;
+}
+
+.sidebar-button {
+    font-size: 15px;
+    padding: 12px 18px;
+    margin: 15px auto; 
+    display: block;
+    width: 80%;
+    text-align: center;
+    color: white;
+    background-color: #7407F2;
+    border: 2px solid #520A7D;
+    border-radius: 12px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sidebar-button:hover {
+    background-color: #EDEDED;
+    color: #7407F2;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.logout-button {
+    background-color: #D72638;
+    border-color: #9E1B2E;
+}
+
+.logout-button:hover {
+    background-color: #FF5C5C;
+    color: white;
+}
+
+.sidebar ul {
+    padding: 0;
+    text-align: center; 
+}
+
+.spacer {
+    height: 40px; 
+}
+
+/* ✅ Modal con botones alineados lado a lado */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content p {
+    font-size: 20px; /* ✅ Agranda la pregunta */
+    margin-bottom: 15px; /* ✅ Espacio antes de los botones */
+}
+
+.modal-buttons {
+    display: flex; /* ✅ Organiza los botones en línea */
+    justify-content: center; /* ✅ Los mantiene centrados */
+    gap: 10px; /* ✅ Espacio entre los botones */
+    margin-top: 15px;
+    width: 100%;
+}
+
+.modal-content button {
+    flex: 1;
+    padding: 12px 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+    border: none;
+    transition: background 0.3s ease, color 0.3s ease;
+    min-width: 120px; /* ✅ Asegura un tamaño uniforme de los botones */
+}
+
+/* ✅ Botón Aceptar con colores base */
+.modal-content button.aceptar {
+    background-color: #7407F2;
+    color: white;
+}
+
+.modal-content button.aceptar:hover {
+    background-color: #2607F2;
+}
+
+/* ✅ Botón Cancelar con color rojo */
+.modal-content button.cancelar {
+    background-color: #D72638;
+    color: white;
+}
+
+.modal-content button.cancelar:hover {
+    background-color: #FF5C5C;
+}
+
+.sidebar-logo {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.sidebar-logo img {
+    width: 120px; 
+    height: auto;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-logo img:hover {
+    opacity: 1; 
 }

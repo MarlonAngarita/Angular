@@ -1,4 +1,5 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import { Inicio } from './features/inicio/inicio';
 import { Login } from './features/login/login';
 import { Nosotros } from './features/nosotros/nosotros';
@@ -41,3 +42,9 @@ export const routes: Routes = [
 
   { path: '**', redirectTo: '/inicio' } // Manejo de rutas incorrectas
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class app {}

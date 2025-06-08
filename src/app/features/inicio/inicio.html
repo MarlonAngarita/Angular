@@ -1,8 +1,25 @@
-<app-navbar></app-navbar>
+<!-- Sección principal centrada -->
+<section class="inicio-container">
+  
+  <!-- Contenedor de imagen y texto -->
+  <div class="contenido-inicio">
+    
+    <!-- Imagen -->
+    <div class="imagen-container">
+      <img src="{}" alt="Grupo de personajes" class="imagen-inicio" />
+    </div>
 
-<main class="main-content">
-  <h1>Bienvenido a KutsartCode</h1>
-  <p>Explora nuestra plataforma y aprende con nosotros.</p>
-</main>
+    <!-- Contenedor de texto -->
+    <div class="texto-container">
+      <h1 class="titulo-inicio">
+        ¡Programar nunca fue tan fácil!
+      </h1>
 
-<app-footer></app-footer>
+      <!-- Botón de navegación -->
+      <button class="boton-inicio" (click)="irARegistro()">
+        Comienza Aquí 👉
+      </button>
+    </div>
+
+  </div>
+</section>

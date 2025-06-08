@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
-import { Navbar } from '../../core/navbar/navbar'; 
-import { Footer } from '../../core/footer/footer'; 
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-nosotros',
-  imports: [Navbar, Footer],
+  imports: [CommonModule],
   standalone: true,
   templateUrl: './nosotros.html',
-  styleUrl: './nosotros.css'
+  styleUrls: ['./nosotros.css']
 })
 export class Nosotros {
-
+  imagenes = {
+    oso: 'assets/img/Oso solo.png',
+    gata: 'assets/img/gata.png',
+    zorra: 'assets/img/zorra.png'
+  };
 }

@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
-import { Navbar } from '../../core/navbar/navbar'; 
-import { Footer } from '../../core/footer/footer'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicio',
-  imports: [Navbar, Footer],
+  imports: [],
   standalone: true,
   templateUrl: './inicio.html',
   styleUrl: './inicio.css'
 })
 export class Inicio {
+  constructor(private router: Router) {}
 
+  irARegistro() {
+    this.router.navigate(['/registro']);
+  }
 }

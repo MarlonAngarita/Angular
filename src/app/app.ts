@@ -5,6 +5,7 @@ import { Footer } from './core/footer/footer';
 import { Sidebar } from './core/sidebar/sidebar';
 import { RouterOutlet } from '@angular/router';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,

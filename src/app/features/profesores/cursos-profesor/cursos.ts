@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth';
 
 @Component({
   selector: 'app-cursos-profesor',
@@ -9,7 +11,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './cursos.html',
   styleUrls: ['./cursos.css']
 })
-export class CursosProfesor {
+export class CursosProfesor implements OnInit {
   modalCrearActivo = false;
   modalDetallesActivo = false;
   modalEdicionActivo = false;
@@ -17,12 +19,34 @@ export class CursosProfesor {
   cursoSeleccionado: any = null;
   materialApoyo: File | null = null;
 
+  userRole: string = ''; /* ✅ Variable para validar el rol */
+  mostrarSidebar = false; /* ✅ Control para mostrar sidebar */
+  mostrarFooter = false; /* ✅ Control para mostrar footer */
+
   cursosCreados = [
     { nombre: 'Angular Avanzado', descripcion: 'Curso sobre servicios y módulos.', contenido: 'Inyección de dependencias, Lazy Loading.' },
     { nombre: 'Optimización CSS', descripcion: 'Mejores prácticas en rendimiento CSS.', contenido: 'Metodologías como BEM y Tailwind.' }
   ];
 
   nuevoCurso = { nombre: '', descripcion: '', contenido: '' };
+
+  constructor(private router: Router, private authService: AuthService) {}
+
+  ngOnInit() {
+    this.userRole = this.authService.getUserRole();
+
+    if (!this.userRole || this.userRole !== 'profesor') {
+      console.error('❌ Acceso denegado: No tienes permisos para esta vista.');
+      this.router.navigate(['/login']); /* Redirige si el usuario no es profesor */
+    }
+
+    /* Configuración de sidebar y footer según las reglas globales */
+    const paginasConNavbarFooter = ['inicio', 'registro', 'nosotros', 'login'];
+    const rutaActual = this.router.url.split('/')[1]; /* Obtiene la primera parte de la URL */
+
+    this.mostrarSidebar = !paginasConNavbarFooter.includes(rutaActual);
+    this.mostrarFooter = paginasConNavbarFooter.includes(rutaActual);
+  }
 
   abrirModalCrear() {
     this.modalCrearActivo = true;

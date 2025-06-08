@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -24,6 +25,8 @@ export class Cursos {
 
   cursosInscritos: any[] = [];
 
+  constructor(private router: Router) {} /* ✅ Se inyecta Router para la navegación */
+
   mostrarDisponibles() {
     this.vistaActual = 'disponibles';
   }
@@ -43,8 +46,10 @@ export class Cursos {
   }
 
   verMasCurso() {
-  console.log("Ver más detalles del curso:", this.cursoSeleccionado);
-  // Aquí puedes agregar cualquier lógica adicional para mostrar más información
+    console.log("Ver detalles del curso:", this.cursoSeleccionado);
+    if (this.cursoSeleccionado) {
+        this.router.navigate(['/usuario/detalle-curso'], { state: { curso: this.cursoSeleccionado } }); 
+    }
   }
 
   inscribirseCurso() {

@@ -227,7 +227,7 @@ input {
 /* 📱 Media queries para tablets y móviles */
 @media (max-width: 1024px) {
   .mis-cursos-container {
-    justify-content: center;
+    justify-content: flex-start; 
   }
 
   .mis-cursos-container > .curso-card,
@@ -238,6 +238,10 @@ input {
 }
 
 @media (max-width: 600px) {
+  .mis-cursos-container {
+    justify-content: flex-start; 
+  }
+
   .mis-cursos-container > .curso-card,
   .mis-cursos-container > .crear-curso {
     flex: 1 1 100%;

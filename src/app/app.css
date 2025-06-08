@@ -1,15 +1,26 @@
+/* Asegura que `body` y `html` ocupen toda la pantalla */
 html, body {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  background-color: #EDEDED;
+  overflow-x: hidden; 
+  min-height: 100vh; 
   display: flex;
   flex-direction: column;
 }
 
+/* Asegura que `app-root` actúe como layout vertical */
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* El contenido crece y empuja el footer hacia abajo */
 .main-content {
   flex: 1;
-  margin-left: 45px;
-  margin-right: 45px;
-  padding-top: 80px;  /* Ajustar según altura del navbar */
-  padding-bottom: 90px; /* Ajustar según altura del footer */
+  width: 100%;
+  padding: 70px 45px 10px; 
+  box-sizing: border-box;
 }

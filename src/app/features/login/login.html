@@ -1,7 +1,5 @@
-<app-navbar></app-navbar>
-
 <main class="main-content">
-    <form (submit)="onSubmit()">
+    <form (ngSubmit)="onLogin()" class="formulario-container">
         <h1>INICIO DE SESIÓN</h1>
         <div class="input-container">
             <input type="text" [(ngModel)]="nombreUsuario" name="nombreUsuario" required>
@@ -17,5 +15,4 @@
         <button (click)="redirigirRegistro()" class="link-registro">REGISTRARSE</button>
     </form> 
 </main>
-
-<app-footer></app-footer>
+ 

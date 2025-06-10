@@ -23,9 +23,20 @@ export class Sidebar {
   ngOnInit() {
     if (typeof window !== 'undefined') {
         this.userRole = localStorage.getItem('userRole') || '';
-    } else {
-        this.userRole = '';
+        this.fotoPerfil = localStorage.getItem('fotoPerfil') || '/assets/img/kutsa-logo.png';
     }
+
+    /* Verifica cada segundo si la foto en `localStorage` ha cambiado */
+    setInterval(() => {
+        const nuevaFoto = localStorage.getItem('fotoPerfil') || '/assets/img/kutsa-logo.png';
+        if (this.fotoPerfil !== nuevaFoto) {
+            this.fotoPerfil = nuevaFoto;
+        }
+    }, 1000);
+  }
+
+  actualizarFotoPerfil() {
+    this.fotoPerfil = localStorage.getItem('fotoPerfil') || '/assets/img/kutsa-logo.png';
   }
 
   irAlPerfil() {

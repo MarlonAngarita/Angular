@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 export interface Usuario {
   nombre_usuario: string;
   correo_usuario: string;

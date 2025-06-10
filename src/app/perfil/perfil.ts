@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router'; 
-import { AuthService } from '../../services/auth';
+import { AuthService } from '../services/auth'; 
 
 @Component({
   selector: 'app-perfil',
@@ -23,6 +23,8 @@ export class Perfil implements OnInit {
   ngOnInit() {
     if (typeof window !== 'undefined') {
         this.user = this.authService.getUserData() || { name: '', email: '', password: '', fotoPerfil: '' };
+        this.fotoPerfil = this.user.fotoPerfil || 'https://www.w3schools.com/howto/img_avatar.png'; /* Sincroniza foto */
+        localStorage.setItem('fotoPerfil', this.fotoPerfil); /* Guarda la foto en localStorage */
     } else {
         this.user = { name: '', email: '', password: '', fotoPerfil: '' };
     }
@@ -40,6 +42,13 @@ export class Perfil implements OnInit {
         reader.onload = (e: any) => {
             this.user.fotoPerfil = e.target.result; /* Guarda la nueva foto */
             this.authService.updateUserData(this.user); /* Actualiza la información */
+            localStorage.setItem('fotoPerfil', this.user.fotoPerfil); /* Guarda la nueva foto en localStorage */
+
+            /* Actualiza la imagen del sidebar */
+            const sidebar = document.querySelector('app-sidebar') as any;
+            if (sidebar && sidebar.actualizarFotoPerfil) {
+                sidebar.actualizarFotoPerfil();
+            }
         };
         reader.readAsDataURL(file);
     }
@@ -62,7 +71,8 @@ export class Perfil implements OnInit {
 
     localStorage.removeItem('userRole'); /* Borra el rol del usuario */
     localStorage.removeItem('usuarioRegistrado'); /* Borra los datos de usuario */
-
+    localStorage.removeItem('fotoPerfil'); /* Borra la foto de perfil */
+    
     setTimeout(() => {
         this.router.navigate(['/login']).then(() => {
             setTimeout(() => {

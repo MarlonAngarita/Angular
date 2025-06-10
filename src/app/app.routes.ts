@@ -4,7 +4,7 @@ import { Inicio } from './features/inicio/inicio';
 import { Login } from './features/login/login';
 import { Nosotros } from './features/nosotros/nosotros';
 import { Registro } from './features/registro/registro';
-import { Perfil } from './features/perfil/perfil';
+import { Perfil } from './perfil/perfil';
 
 import { BibliotecaProfesor } from './features/profesores/biblioteca/biblioteca';
 import { CategoriaProfesor } from './features/profesores/categoria-profesor/categoria-profesor';

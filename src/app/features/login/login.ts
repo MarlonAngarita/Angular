@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AuthService, Usuario } from '../../services/auth'; /* ✅ Importación correcta de Usuario */
+import { AuthService, Usuario } from '../../services/auth';
 
 @Component({
   selector: 'app-login',

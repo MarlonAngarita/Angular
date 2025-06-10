@@ -4,6 +4,7 @@ import { Inicio } from './features/inicio/inicio';
 import { Login } from './features/login/login';
 import { Nosotros } from './features/nosotros/nosotros';
 import { Registro } from './features/registro/registro';
+import { Perfil } from './features/perfil/perfil';
 
 import { BibliotecaProfesor } from './features/profesores/biblioteca/biblioteca';
 import { CategoriaProfesor } from './features/profesores/categoria-profesor/categoria-profesor';
@@ -25,6 +26,7 @@ export const routes: Routes = [
   { path: 'login', component: Login },
   { path: 'registro', component: Registro },
   { path: 'nosotros', component: Nosotros },
+  { path: 'perfil', component: Perfil },
   
   { path: 'usuario/biblioteca', component: Biblioteca },
   { path: 'usuario/categoria-estudiante', component: CategoriaEstudiante },

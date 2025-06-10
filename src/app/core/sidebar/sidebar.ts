@@ -11,52 +11,60 @@ import { Router } from '@angular/router';
   styleUrls: ['./sidebar.css']
 })
 export class Sidebar {
-  sidebarOculto = true; // Inicialmente oculto
+  sidebarOculto = true;
   modalCerrarSesionActivo = false;
   userRole: string = '';
+  userName: string = ''; /* Variable para el nombre del usuario */
+  user: any = {};
+  fotoPerfil:string = '';
 
-  constructor(private authService: AuthService, private router: Router) {
-    this.userRole = this.authService.getUserRole() || ''; // Si es null, asigna una cadena vacía
-  }
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
-    this.userRole = this.authService.getUserRole() || ''; /* ✅ Obtiene el rol del usuario */
-    console.log('Rol detectado:', this.userRole); /* ✅ Verifica el rol en la consola */
+    if (typeof window !== 'undefined') {
+        this.userRole = localStorage.getItem('userRole') || '';
+    } else {
+        this.userRole = '';
+    }
+  }
+
+  irAlPerfil() {
+    this.router.navigate(['/perfil']); /* Redirige al perfil */
   }
 
   toggleSidebar() {
-    this.sidebarOculto = !this.sidebarOculto; // Alterna entre oculto y visible
+    this.sidebarOculto = !this.sidebarOculto;
   }
 
   navegar(ruta: string) {
-    this.router.navigate([ruta]); /* Redirige al usuario manualmente */
+    this.router.navigate([ruta]);
   }
 
   detenerPropagacion(event: Event) {
-    event.stopPropagation(); /* Evita que el clic dentro del sidebar lo cierre */
+    event.stopPropagation();
   }
 
   @HostListener('document:click', ['$event'])
   cerrarSidebar(event: Event) {
     const target = event.target as HTMLElement;
-    if (!this.sidebarOculto && !target.closest('.menu-toggle')) { /* Ignora el botón de menú */
+    if (!this.sidebarOculto && !target.closest('.menu-toggle')) {
       this.sidebarOculto = true;
     }
   }
 
-  abrirModalCerrarSesion() {
-    this.modalCerrarSesionActivo = true;
-  }
+  // abrirModalCerrarSesion() {
+  //   this.modalCerrarSesionActivo = true;
+  // }
 
-  cerrarModalCerrarSesion() {
+  /*cerrarModalCerrarSesion() {
     this.modalCerrarSesionActivo = false;
   }
 
   cerrarSesion() {
-    this.modalCerrarSesionActivo = false; /* Cierra el modal */
-    this.authService.logout(); /* Cierra sesión */
+    this.modalCerrarSesionActivo = false;
+    this.authService.logout();
     setTimeout(() => {
-      window.location.reload(); /*Recarga la página para que la vista del login aparezca correctamente */
-    }, 300); /* Pequeña espera para asegurar la redirección antes de recargar */
-  }
+      window.location.reload();
+    }, 300);
+  }*/
 }

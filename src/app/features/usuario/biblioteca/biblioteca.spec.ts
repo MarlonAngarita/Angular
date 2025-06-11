@@ -8,7 +8,7 @@ describe('Biblioteca', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [Biblioteca]
+      declarations: [Biblioteca],
     }).compileComponents();
 
     fixture = TestBed.createComponent(Biblioteca);

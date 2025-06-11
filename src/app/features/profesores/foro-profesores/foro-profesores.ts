@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule],
   standalone: true,
   templateUrl: './foro-profesores.html',
-  styleUrl: './foro-profesores.css'
+  styleUrl: './foro-profesores.css',
 })
 export class ForoProfesores {
   tituloPost: string = '';
@@ -17,8 +17,9 @@ export class ForoProfesores {
       autor: 'Usuario 1',
       tiempo: 'Hace 5 min',
       contenido: 'Este foro es increíble, ¿qué opinan?',
-      imagen: 'https://img.freepik.com/vector-premium/entrenador-fitness-imagen-vectorial-icono-femenino-puede-usar-profesiones_120816-263153.jpg?w=740'
-    }
+      imagen:
+        'https://img.freepik.com/vector-premium/entrenador-fitness-imagen-vectorial-icono-femenino-puede-usar-profesiones_120816-263153.jpg?w=740',
+    },
   ];
 
   publicarPost() {
@@ -27,7 +28,8 @@ export class ForoProfesores {
         autor: 'Profesor',
         tiempo: 'Hace un momento',
         contenido: this.contenidoPost,
-        imagen: 'https://img.freepik.com/vector-premium/entrenador-fitness-imagen-vectorial-icono-femenino-puede-usar-profesiones_120816-263153.jpg?w=740'
+        imagen:
+          'https://img.freepik.com/vector-premium/entrenador-fitness-imagen-vectorial-icono-femenino-puede-usar-profesiones_120816-263153.jpg?w=740',
       });
 
       this.tituloPost = '';

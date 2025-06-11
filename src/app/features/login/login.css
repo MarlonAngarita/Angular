@@ -54,7 +54,8 @@ input:focus {
   border-color: #0051ff;
 }
 
-.btn, .link-registro {
+.btn,
+.link-registro {
   width: 200px;
   height: 40px;
   margin: 10px 0;
@@ -66,15 +67,19 @@ input:focus {
   font-size: 16px;
   font-family: sans-serif;
   cursor: pointer;
-  transition: background 0.3s, transform 0.1s; 
+  transition:
+    background 0.3s,
+    transform 0.1s;
 }
 
-.btn:hover, .link-registro:hover {
-    background-color: rgb(135, 37, 221);
-    cursor: pointer;
+.btn:hover,
+.link-registro:hover {
+  background-color: rgb(135, 37, 221);
+  cursor: pointer;
 }
 
-.btn:active, .link-registro:active {
+.btn:active,
+.link-registro:active {
   transform: scale(0.95);
 }
 

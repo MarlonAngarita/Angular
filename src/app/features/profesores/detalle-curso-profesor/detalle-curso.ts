@@ -8,19 +8,19 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './detalle-curso.html',
-  styleUrl: './detalle-curso.css'
+  styleUrl: './detalle-curso.css',
 })
 export class DetalleCursoProfesor {
   tarjetas = [
     { nombre: 'Cursos', ruta: '/profesores/cursos' },
     { nombre: 'Foros', ruta: 'profesores/foro-profesores' },
     { nombre: 'Módulos', ruta: '/profesores/modulos' },
-    { nombre: 'Quiz', ruta: '/profesores/quiz' }
+    { nombre: 'Quiz', ruta: '/profesores/quiz' },
   ];
 
   constructor(private router: Router) {}
 
   navegar(ruta: string) {
-    this.router.navigate([ruta]); 
+    this.router.navigate([ruta]);
   }
 }

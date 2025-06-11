@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule],
   standalone: true,
   templateUrl: './detalle-contenido.html',
-  styleUrl: './detalle-contenido.css'
+  styleUrl: './detalle-contenido.css',
 })
 export class DetalleContenido {
   temaSeleccionado = 'poo';
@@ -16,14 +16,26 @@ export class DetalleContenido {
   temas = [
     { nombre: 'Programación Orientada a Objetos', value: 'poo' },
     { nombre: 'Estructuras de Datos', value: 'estructuras' },
-    { nombre: 'Programación Funcional', value: 'funcional' }
+    { nombre: 'Programación Funcional', value: 'funcional' },
   ];
 
   contenidos: { [key: string]: { nombre: string; biblioteca: string; modulos: string[] } } = {
-  poo: { nombre: 'Programación Orientada a Objetos', biblioteca: 'Java, C#', modulos: ['Clases', 'Objetos', 'Herencia', 'Polimorfismo'] },
-  estructuras: { nombre: 'Estructuras de Datos', biblioteca: 'Python, C++', modulos: ['Listas', 'Pilas', 'Colas', 'Árboles'] },
-  funcional: { nombre: 'Programación Funcional', biblioteca: 'Haskell, JavaScript', modulos: ['Funciones puras', 'Inmutabilidad', 'Recursión'] }
-};
+    poo: {
+      nombre: 'Programación Orientada a Objetos',
+      biblioteca: 'Java, C#',
+      modulos: ['Clases', 'Objetos', 'Herencia', 'Polimorfismo'],
+    },
+    estructuras: {
+      nombre: 'Estructuras de Datos',
+      biblioteca: 'Python, C++',
+      modulos: ['Listas', 'Pilas', 'Colas', 'Árboles'],
+    },
+    funcional: {
+      nombre: 'Programación Funcional',
+      biblioteca: 'Haskell, JavaScript',
+      modulos: ['Funciones puras', 'Inmutabilidad', 'Recursión'],
+    },
+  };
 
   contenido = this.contenidos[this.temaSeleccionado];
   modulosFiltrados = [...this.contenido.modulos];
@@ -35,7 +47,7 @@ export class DetalleContenido {
 
   filtrarModulos() {
     this.modulosFiltrados = this.contenido.modulos.filter((modulo: string) =>
-      modulo.toLowerCase().includes(this.busquedaModulo.toLowerCase())
+      modulo.toLowerCase().includes(this.busquedaModulo.toLowerCase()),
     );
   }
 }

@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './cursos.html',
-  styleUrls: ['./cursos.css']
+  styleUrls: ['./cursos.css'],
 })
 export class Cursos {
   vistaActual = 'disponibles';
@@ -18,9 +18,21 @@ export class Cursos {
   modalAlertaActivo = false;
 
   cursosDisponibles = [
-    { titulo: 'Angular Básico', descripcion: 'Aprende lo esencial de Angular.', contenido: 'Introducción a componentes y servicios.' },
-    { titulo: 'CSS Avanzado', descripcion: 'Domina animaciones y efectos.', contenido: 'Flexbox, Grid y Transiciones.' },
-    { titulo: 'JavaScript Moderno', descripcion: 'Deep dive en ES6+.', contenido: 'Async/Await, Promesas y más.' }
+    {
+      titulo: 'Angular Básico',
+      descripcion: 'Aprende lo esencial de Angular.',
+      contenido: 'Introducción a componentes y servicios.',
+    },
+    {
+      titulo: 'CSS Avanzado',
+      descripcion: 'Domina animaciones y efectos.',
+      contenido: 'Flexbox, Grid y Transiciones.',
+    },
+    {
+      titulo: 'JavaScript Moderno',
+      descripcion: 'Deep dive en ES6+.',
+      contenido: 'Async/Await, Promesas y más.',
+    },
   ];
 
   cursosInscritos: any[] = [];
@@ -46,18 +58,20 @@ export class Cursos {
   }
 
   verMasCurso() {
-    console.log("Ver detalles del curso:", this.cursoSeleccionado);
+    console.log('Ver detalles del curso:', this.cursoSeleccionado);
     if (this.cursoSeleccionado) {
-        this.router.navigate(['/usuario/detalle-curso'], { state: { curso: this.cursoSeleccionado } }); 
+      this.router.navigate(['/usuario/detalle-curso'], {
+        state: { curso: this.cursoSeleccionado },
+      });
     }
   }
 
   inscribirseCurso() {
-    if (this.cursosInscritos.some(curso => curso.titulo === this.cursoSeleccionado.titulo)) {
-        this.modalAlertaActivo = true; // Activa el modal de alerta si ya está inscrito
+    if (this.cursosInscritos.some((curso) => curso.titulo === this.cursoSeleccionado.titulo)) {
+      this.modalAlertaActivo = true; // Activa el modal de alerta si ya está inscrito
     } else {
-        this.cursosInscritos.push(this.cursoSeleccionado);
-        this.modalConfirmacionActivo = true; // Activa el modal de confirmación
+      this.cursosInscritos.push(this.cursoSeleccionado);
+      this.modalConfirmacionActivo = true; // Activa el modal de confirmación
     }
   }
 

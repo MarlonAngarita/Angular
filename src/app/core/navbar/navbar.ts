@@ -5,10 +5,10 @@ import { Router } from '@angular/router';
   selector: 'app-navbar',
   standalone: true,
   templateUrl: './navbar.html',
-  styleUrl: './navbar.css'
+  styleUrl: './navbar.css',
 })
 export class Navbar {
-  constructor(private router: Router) {} 
+  constructor(private router: Router) {}
 
   navegar(ruta: string) {
     this.router.navigate([ruta]);

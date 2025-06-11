@@ -27,7 +27,7 @@ export const routes: Routes = [
   { path: 'registro', component: Registro },
   { path: 'nosotros', component: Nosotros },
   { path: 'perfil', component: Perfil },
-  
+
   { path: 'usuario/biblioteca', component: Biblioteca },
   { path: 'usuario/categoria-estudiante', component: CategoriaEstudiante },
   { path: 'usuario/cursos', component: Cursos },
@@ -42,11 +42,11 @@ export const routes: Routes = [
   { path: 'profesores/detalle-curso', component: DetalleCursoProfesor },
   { path: 'profesores/foro-profesores', component: ForoProfesores },
 
-  { path: '**', redirectTo: '/inicio' } // Manejo de rutas incorrectas
+  { path: '**', redirectTo: '/inicio' }, // Manejo de rutas incorrectas
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class app {}

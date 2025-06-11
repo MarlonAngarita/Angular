@@ -9,32 +9,39 @@ import { AuthService, Usuario } from '../../services/auth';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './login.html',
-  styleUrl: './login.css'
+  styleUrl: './login.css',
 })
 export class Login {
   nombreUsuario = '';
   contrasenaUsuario = '';
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+  ) {}
 
   onSubmit() {
     console.log('Usuario:', this.nombreUsuario);
     console.log('Contraseña:', this.contrasenaUsuario);
-  } 
+  }
 
   redirigirRegistro() {
-    this.router.navigate(['/registro']); 
+    this.router.navigate(['/registro']);
   }
 
   onLogin() {
-  const usuarioRegistrado = localStorage.getItem('usuarioRegistrado');
+    const usuarioRegistrado = localStorage.getItem('usuarioRegistrado');
 
     if (usuarioRegistrado) {
       const usuario: Usuario = JSON.parse(usuarioRegistrado);
 
-      if (this.nombreUsuario.trim() === usuario.correo_usuario.trim() &&
-          this.contrasenaUsuario.trim() === usuario.contraseña_usuario.trim()) {
-        console.log(`Inicio de sesión exitoso para: ${usuario.nombre_usuario}, Rol: ${usuario.rol}`);
+      if (
+        this.nombreUsuario.trim() === usuario.correo_usuario.trim() &&
+        this.contrasenaUsuario.trim() === usuario.contraseña_usuario.trim()
+      ) {
+        console.log(
+          `Inicio de sesión exitoso para: ${usuario.nombre_usuario}, Rol: ${usuario.rol}`,
+        );
 
         localStorage.setItem('userRole', usuario.rol); /* Guarda el rol */
 
@@ -55,5 +62,4 @@ export class Login {
       console.error('❌ Usuario no encontrado.');
     }
   }
-
 }

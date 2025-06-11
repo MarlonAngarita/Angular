@@ -8,30 +8,33 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './sidebar.html',
-  styleUrls: ['./sidebar.css']
+  styleUrls: ['./sidebar.css'],
 })
-export class Sidebar {
+export class Sidebar implements OnInit {
   sidebarOculto = true;
   modalCerrarSesionActivo = false;
   userRole: string = '';
   userName: string = ''; /* Variable para el nombre del usuario */
   user: any = {};
-  fotoPerfil:string = '';
+  fotoPerfil: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+  ) {}
 
   ngOnInit() {
     if (typeof window !== 'undefined') {
-        this.userRole = localStorage.getItem('userRole') || '';
-        this.fotoPerfil = localStorage.getItem('fotoPerfil') || '/assets/img/kutsa-logo.png';
+      this.userRole = localStorage.getItem('userRole') || '';
+      this.fotoPerfil = localStorage.getItem('fotoPerfil') || '/assets/img/kutsa-logo.png';
     }
 
     /* Verifica cada segundo si la foto en `localStorage` ha cambiado */
     setInterval(() => {
-        const nuevaFoto = localStorage.getItem('fotoPerfil') || '/assets/img/kutsa-logo.png';
-        if (this.fotoPerfil !== nuevaFoto) {
-            this.fotoPerfil = nuevaFoto;
-        }
+      const nuevaFoto = localStorage.getItem('fotoPerfil') || '/assets/img/kutsa-logo.png';
+      if (this.fotoPerfil !== nuevaFoto) {
+        this.fotoPerfil = nuevaFoto;
+      }
     }, 1000);
   }
 

@@ -6,7 +6,7 @@
   <div class="buscador-contenedor">
     <i class="fa-solid fa-magnifying-glass icono-lupa"></i>
     <input type="text" [(ngModel)]="busqueda" placeholder="Buscar contenido..." id="buscador" />
-</div>
+  </div>
 
   <section *ngFor="let item of bibliotecaFiltrada" class="item">
     <h2 class="titulo">{{ item.titulo }}</h2>

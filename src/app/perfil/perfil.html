@@ -1,48 +1,48 @@
 <!-- Navbar centrado -->
 <nav class="perfil-navbar">
-    <h1>Perfil</h1>
+  <h1>Perfil</h1>
 </nav>
 
 <!-- Contenedor de perfil -->
 <div class="perfil-info">
-    <div class="perfil-imagen">
-        <img [src]="fotoPerfil" alt="Foto de perfil">
-    </div>
+  <div class="perfil-imagen">
+    <img [src]="fotoPerfil" alt="Foto de perfil" />
+  </div>
 
-    <!-- Botón de carga de imagen debajo del círculo -->
-    <input type="file" (change)="cambiarFoto($event)" class="foto-input">
-    
-    <label class="seccion-titulo">Nombre:</label>
-    <input type="text" [(ngModel)]="user.name" class="input-perfil">
+  <!-- Botón de carga de imagen debajo del círculo -->
+  <input type="file" (change)="cambiarFoto($event)" class="foto-input" />
 
-    <label class="seccion-titulo">Correo Electrónico:</label>
-    <input type="email" [(ngModel)]="user.email" class="input-perfil">
+  <label class="seccion-titulo">Nombre:</label>
+  <input type="text" [(ngModel)]="user.name" class="input-perfil" />
 
-    <label class="seccion-titulo">Nueva Contraseña:</label>
-    <input type="password" [(ngModel)]="user.password" class="input-perfil">
+  <label class="seccion-titulo">Correo Electrónico:</label>
+  <input type="email" [(ngModel)]="user.email" class="input-perfil" />
 
-    <button class="btn-guardar" (click)="actualizarPerfil()">Guardar Cambios</button>
-    <button class="logout-button" (click)="abrirModalCerrarSesion()">Cerrar sesión</button>
+  <label class="seccion-titulo">Nueva Contraseña:</label>
+  <input type="password" [(ngModel)]="user.password" class="input-perfil" />
+
+  <button class="btn-guardar" (click)="actualizarPerfil()">Guardar Cambios</button>
+  <button class="logout-button" (click)="abrirModalCerrarSesion()">Cerrar sesión</button>
 </div>
 
 <!-- Modal de confirmación de cambios -->
 <div class="modal" *ngIf="modalActivo">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-        <p>Información actualizada exitosamente</p>
-        <div class="modal-buttons">
-            <button class="aceptar" (click)="cerrarModal()">Aceptar</button>
-        </div>
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <p>Información actualizada exitosamente</p>
+    <div class="modal-buttons">
+      <button class="aceptar" (click)="cerrarModal()">Aceptar</button>
     </div>
+  </div>
 </div>
 
 <!-- Modal de confirmación -->
 <div class="modal" *ngIf="modalCerrarSesionActivo">
-    <div class="modal-content">
-        <p>¿Está seguro que desea cerrar sesión?</p>
-        <div class="modal-buttons">
-            <button class="aceptar" (click)="cerrarSesion()">Aceptar</button>
-            <button class="cancelar" (click)="cerrarModalCerrarSesion()">Cancelar</button>
-        </div>
+  <div class="modal-content">
+    <p>¿Está seguro que desea cerrar sesión?</p>
+    <div class="modal-buttons">
+      <button class="aceptar" (click)="cerrarSesion()">Aceptar</button>
+      <button class="cancelar" (click)="cerrarModalCerrarSesion()">Cancelar</button>
     </div>
+  </div>
 </div>

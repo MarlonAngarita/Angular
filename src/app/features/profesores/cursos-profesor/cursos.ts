@@ -9,7 +9,7 @@ import { AuthService } from '../../../services/auth';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './cursos.html',
-  styleUrls: ['./cursos.css']
+  styleUrls: ['./cursos.css'],
 })
 export class CursosProfesor implements OnInit {
   modalCrearActivo = false;
@@ -24,13 +24,24 @@ export class CursosProfesor implements OnInit {
   mostrarFooter = false; /* ✅ Control para mostrar footer */
 
   cursosCreados = [
-    { nombre: 'Angular Avanzado', descripcion: 'Curso sobre servicios y módulos.', contenido: 'Inyección de dependencias, Lazy Loading.' },
-    { nombre: 'Optimización CSS', descripcion: 'Mejores prácticas en rendimiento CSS.', contenido: 'Metodologías como BEM y Tailwind.' }
+    {
+      nombre: 'Angular Avanzado',
+      descripcion: 'Curso sobre servicios y módulos.',
+      contenido: 'Inyección de dependencias, Lazy Loading.',
+    },
+    {
+      nombre: 'Optimización CSS',
+      descripcion: 'Mejores prácticas en rendimiento CSS.',
+      contenido: 'Metodologías como BEM y Tailwind.',
+    },
   ];
 
   nuevoCurso = { nombre: '', descripcion: '', contenido: '' };
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+  ) {}
 
   ngOnInit() {
     this.userRole = this.authService.getUserRole();
@@ -57,12 +68,16 @@ export class CursosProfesor implements OnInit {
   }
 
   crearCurso() {
-    if (this.nuevoCurso.nombre.trim() && this.nuevoCurso.descripcion.trim() && this.nuevoCurso.contenido.trim()) {
-        const nuevoCurso = { ...this.nuevoCurso };
-        this.cursosCreados.push(nuevoCurso); // Agrega el curso a la lista correctamente
-        this.nuevoCurso = { nombre: '', descripcion: '', contenido: '' }; // Limpia el formulario
-        this.modalCrearActivo = false;
-        this.modalConfirmacionActivo = true; // Muestra el modal de confirmación
+    if (
+      this.nuevoCurso.nombre.trim() &&
+      this.nuevoCurso.descripcion.trim() &&
+      this.nuevoCurso.contenido.trim()
+    ) {
+      const nuevoCurso = { ...this.nuevoCurso };
+      this.cursosCreados.push(nuevoCurso); // Agrega el curso a la lista correctamente
+      this.nuevoCurso = { nombre: '', descripcion: '', contenido: '' }; // Limpia el formulario
+      this.modalCrearActivo = false;
+      this.modalConfirmacionActivo = true; // Muestra el modal de confirmación
     }
   }
 
@@ -81,7 +96,7 @@ export class CursosProfesor implements OnInit {
   }
 
   eliminarCurso(curso: any) {
-    this.cursosCreados = this.cursosCreados.filter(c => c !== curso);
+    this.cursosCreados = this.cursosCreados.filter((c) => c !== curso);
   }
 
   editarCurso(curso: any) {
@@ -90,7 +105,7 @@ export class CursosProfesor implements OnInit {
   }
 
   guardarEdicionCurso() {
-    const index = this.cursosCreados.findIndex(c => c.nombre === this.cursoSeleccionado.nombre);
+    const index = this.cursosCreados.findIndex((c) => c.nombre === this.cursoSeleccionado.nombre);
     if (index !== -1) {
       this.cursosCreados[index] = { ...this.cursoSeleccionado }; // Actualiza los datos en la lista
       this.modalEdicionActivo = false;

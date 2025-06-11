@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule],
   standalone: true,
   templateUrl: './detalle-curso.html',
-  styleUrls: ['./detalle-curso.css']
+  styleUrls: ['./detalle-curso.css'],
 })
 export class DetalleCurso {
   curso: any = null;
@@ -23,43 +23,43 @@ export class DetalleCurso {
     this.curso = navigation?.extras.state?.['curso'];
 
     if (!this.curso) {
-        this.curso = {
-            nombre: 'Curso no especificado',
-            descripcion: 'No hay información disponible.',
-            contenido: []
-        };
+      this.curso = {
+        nombre: 'Curso no especificado',
+        descripcion: 'No hay información disponible.',
+        contenido: [],
+      };
     }
 
     // Asegura que contenido siempre sea un array
     if (typeof this.curso.contenido === 'string') {
-        this.curso.contenido = [this.curso.contenido]; /* Convierte string en array */
+      this.curso.contenido = [this.curso.contenido]; /* Convierte string en array */
     }
 
-    console.log("Curso recibido en Detalle:", this.curso);
+    console.log('Curso recibido en Detalle:', this.curso);
   }
 
   inscribirse() {
     this.inscrito = true;
     this.progreso = 0;
     this.mostrarModalInscripcion = true;
-    console.log("Modal Inscripción:", this.mostrarModalInscripcion);
+    console.log('Modal Inscripción:', this.mostrarModalInscripcion);
   }
 
   confirmarRetiro() {
     this.mostrarModalRetiroConfirmacion = true;
-    console.log("Modal Confirmar Retiro:", this.mostrarModalRetiroConfirmacion);
+    console.log('Modal Confirmar Retiro:', this.mostrarModalRetiroConfirmacion);
   }
 
- retirarse() {
+  retirarse() {
     this.mostrarModalRetiroConfirmacion = false;
     this.mostrarModalRetiroExitoso = true;
 
     setTimeout(() => {
-        this.inscrito = false; 
-        this.progreso = 0; /* Reinicia la barra de progreso */
+      this.inscrito = false;
+      this.progreso = 0; /* Reinicia la barra de progreso */
     }, 1000); /* Espera 1 segundo para actualizar el estado de inscripción */
-    
-    console.log("Modal Retiro Exitoso activado:", this.mostrarModalRetiroExitoso);
+
+    console.log('Modal Retiro Exitoso activado:', this.mostrarModalRetiroExitoso);
   }
 
   volver() {
@@ -67,9 +67,9 @@ export class DetalleCurso {
   }
 
   cerrarModales() {
-    if (this.mostrarModalRetiroExitoso) { 
-        this.inscrito = false; /* Se actualiza el estado de inscripción */
-        this.progreso = 0; /* Se reinicia la barra de progreso */
+    if (this.mostrarModalRetiroExitoso) {
+      this.inscrito = false; /* Se actualiza el estado de inscripción */
+      this.progreso = 0; /* Se reinicia la barra de progreso */
     }
 
     this.mostrarModalInscripcion = false;

@@ -2,7 +2,7 @@ body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #EDEDED;
+  background-color: #ededed;
 }
 
 .navbar {
@@ -10,7 +10,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #2607F2;
+  background-color: #2607f2;
   color: white;
   text-align: center;
   font-size: 1.5rem;
@@ -38,12 +38,12 @@ body {
   box-sizing: border-box;
 }
 
-.mis-cursos-container > *:nth-child(n+5) {
+.mis-cursos-container > *:nth-child(n + 5) {
   margin-top: 1.5rem;
 }
 
 .crear-curso {
-  background-color: #EDEDED;
+  background-color: #ededed;
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -53,7 +53,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px dashed #2607F2;
+  border: 2px dashed #2607f2;
   transition: transform 0.2s ease;
 }
 
@@ -64,7 +64,7 @@ body {
 
 .btn-crear-curso {
   font-size: 48px;
-  color: #2607F2;
+  color: #2607f2;
   background: none;
   border: none;
   cursor: pointer;
@@ -72,7 +72,7 @@ body {
 }
 
 .curso-card {
-  background-color: #EDEDED;
+  background-color: #ededed;
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -84,7 +84,7 @@ body {
 .curso-card h3 {
   font-size: 1.3rem;
   font-weight: bold;
-  color: #2607F2;
+  color: #2607f2;
   margin-bottom: 1rem;
 }
 
@@ -110,7 +110,7 @@ body {
 }
 
 .btn-detalles {
-  background-color: #7407F2;
+  background-color: #7407f2;
 }
 
 .btn-detalles:hover {
@@ -139,7 +139,7 @@ body {
 }
 
 .modal-contenido {
-  background: #EDEDED;
+  background: #ededed;
   padding: 2rem;
   border-radius: 10px;
   width: 90%;
@@ -169,7 +169,7 @@ body {
 }
 
 .modal-titulo {
-  color: #2607F2;
+  color: #2607f2;
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 15px;
@@ -183,7 +183,7 @@ form {
 
 label {
   font-weight: bold;
-  color: #2607F2;
+  color: #2607f2;
 }
 
 textarea,
@@ -202,7 +202,7 @@ input {
 }
 
 .modal-button {
-  background-color: #7407F2;
+  background-color: #7407f2;
   color: white;
   padding: 10px 16px;
   border: none;
@@ -213,7 +213,7 @@ input {
 }
 
 .modal-button:hover {
-  background-color: #2607F2;
+  background-color: #2607f2;
 }
 
 .btn-cerrar {
@@ -227,7 +227,7 @@ input {
 /* 📱 Media queries para tablets y móviles */
 @media (max-width: 1024px) {
   .mis-cursos-container {
-    justify-content: flex-start; 
+    justify-content: flex-start;
   }
 
   .mis-cursos-container > .curso-card,
@@ -239,7 +239,7 @@ input {
 
 @media (max-width: 600px) {
   .mis-cursos-container {
-    justify-content: flex-start; 
+    justify-content: flex-start;
   }
 
   .mis-cursos-container > .curso-card,

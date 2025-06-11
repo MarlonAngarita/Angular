@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -7,15 +7,15 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './biblioteca.html',
-  styleUrl: './biblioteca.css'
+  styleUrl: './biblioteca.css',
 })
-export class BibliotecaProfesor {
+export class BibliotecaProfesor implements OnInit {
   vistaActual = 'menu-principal';
   clases: any[] = [];
 
   nuevaClase = {
     titulo: '',
-    fecha: ''
+    fecha: '',
   };
 
   ngOnInit() {

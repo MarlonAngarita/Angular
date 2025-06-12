@@ -37,7 +37,7 @@ export class Cursos {
 
   cursosInscritos: any[] = [];
 
-  constructor(private router: Router) {} /* ✅ Se inyecta Router para la navegación */
+  constructor(private router: Router) {} /* Se inyecta Router para la navegación */
 
   mostrarDisponibles() {
     this.vistaActual = 'disponibles';
